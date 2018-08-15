@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My App</title>
+  <title>Blog Posts</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue2-filters/dist/vue2-filters.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="index.js" defer></script>
@@ -62,7 +63,9 @@
 <template id="home-page">
   <div class="vue-component">
     <h1>{{ message }}</h1>
-    <div v-for="post in posts">
+    type in your search here: <input v-model="titleFilter">
+    <!-- <div v-for="post in posts"> -->
+    <div v-for="post in filterBy(posts, titleFilter, 'title')">
       <h5>{{post.title}}</h5>
       <p><img v-bind:src="post.image"></p>
       <p>Published On: {{post.created_at}}</p>

@@ -6,7 +6,8 @@ var HomePage = {
     return {
       message: "Blog Posts",
       posts: [],
-      postModal: ""
+      postModal: "",
+      titleFilter: ""
     };
   },
   created: function() {
